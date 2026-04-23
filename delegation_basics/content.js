@@ -1,18 +1,23 @@
 /*
   content.js (delegation basics module) — all text and puzzle data.
-  Audience: the Oregon school RN who delegates nursing tasks to unlicensed
-  assistive personnel (UAPs / school health assistants).
-  Authority: OAR Chapter 851 Division 47 (2024 revision); ORS Chapter 678;
-  ORS 433.800-433.830 for emergency epinephrine and glucagon.
+  Audience: the Oregon school RN who delegates nursing procedures to
+  unlicensed assistive persons (UAPs / school health assistants).
+  Authority: Oregon Nurse Practice Act, OAR Chapter 851 Divisions 45 and 47
+  (Div 47 revised 2024); ORS Chapter 678; ORS 433.800-433.830 for emergency
+  epinephrine and glucagon. District-level alignment: MESD School Health
+  Services "Delegating to Unregulated Persons" (rev. 5/2025) and the MESD
+  "Guide to Division 47 Delegation in Schools" (rev. 8/14/2025).
 
   Pedagogical frame: the learner (RN) is shown the moment of training a UAP
-  on a specific delegated task. Each puzzle surfaces one Division 47 decision
-  the RN is making as they scope, teach, observe, and document.
+  on a specific delegated nursing procedure. Each puzzle surfaces one
+  Division 47 decision the RN is making as they scope, teach, observe, and
+  document.
 
-  Three clinical tasks thread through the module:
-    - Insulin administration (Aria, 6th grade, Type 1 diabetes, insulin pump)
-    - Clean intermittent catheterization (Marco, 3rd grade, spina bifida)
-    - Gastrostomy tube bolus feeding (Sienna, 2nd grade, G-tube)
+  Three nursing procedures thread through the module — the three commonly
+  delegated in SHS school settings:
+    - Diabetes management (Aria, 6th grade, Type 1, insulin pump)
+    - Clean intermittent catheterization, CIC (Marco, 3rd grade)
+    - Gastrostomy tube bolus feeding (Sienna, 2nd grade)
 
   Edit strings freely; any change to clinical content should be flagged for
   RN review in docs/open_questions_for_rn.md.
@@ -25,9 +30,8 @@ window.SCENARIO = {
     subtitle: "Nursing basics — Division 47 in practice",
     paragraphs: [
       "You are the school nurse. It is the first week of the school year and three students on your caseload have delegated-care needs: Aria, a 6th-grader with an insulin pump; Marco, a 3rd-grader who needs clean intermittent catheterization at midday; and Sienna, a 2nd-grader who gets a G-tube bolus feed at morning break.",
-      "You cannot be at all three buildings at all three moments. Oregon law — OAR Chapter 851 Division 47 — gives you a path: you can delegate these tasks to an unlicensed health assistant if you assess each student, analyze each task, and personally teach and observe the UAP for that student. The delegation is client-specific. It is documented. It is yours to supervise.",
-      "Devon is the new health assistant assigned to your office. Devon has not yet been trained on any of the three students. Over the next six scenes you will work through the Division 47 decisions that shape how you train Devon and what Devon's scope will be for each student.",
-      "This is the basics module. It does not replace the OAR text or your district's delegation policy. It is the mental model you carry into the room the first time you sit down with Devon."
+      "You cannot be at all three buildings at all three moments. Oregon law — the Nurse Practice Act, OAR 851 Division 47 — and MESD's SHS delegation policy give you a path: you can delegate these nursing procedures to an unlicensed assistive person (UAP) if you assess each student, analyze each procedure, and personally teach and observe the UAP for that student. The delegation is student-specific. It is documented. It is yours to review.",
+      "Devon, an educational assistant, has been selected to support your office. Devon has not yet been trained on any of the three students. Over the next six scenes you will work through the Division 47 decisions that shape how you train Devon and what Devon's scope will be for each student."
     ],
     ctaLabel: "Begin"
   },
@@ -37,7 +41,7 @@ window.SCENARIO = {
     eyebrow: "Scene 1 — Opening the training",
     title: "The first five minutes with Devon",
     narrative: [
-      { type: "p", text: "Devon sits down across from you. Aria's red DMMP folder is on the desk between you. Devon is eager and asks:" },
+      { type: "p", text: "Devon sits down across from you. Aria's diabetic action plan is on the desk between you. Devon is eager and asks:" },
       { type: "dialog", speaker: "Devon", text: "So what do I need to know about insulin pumps?" },
       { type: "p", text: "How you open this training shapes whether Devon's scope is safe. Choose the framing that lines up with Division 47." }
     ],
@@ -47,19 +51,19 @@ window.SCENARIO = {
         id: "a",
         text: "\"Insulin pumps are pretty standard — let me walk you through the buttons and then you'll be set for any student with one.\"",
         correct: false,
-        feedback: "This fails the client-specific rule in OAR 851-047-0030(3)(i). A UAP trained on Aria is not trained on Jayden. Pump models, carb ratios, correction factors, low-glucose thresholds, and backup plans are all individual. \"Good for any pump student\" is the sentence that gets a delegation pulled."
+        feedback: "This fails the student-specific rule in OAR 851-047-0030(3)(i). A UAP trained on Aria is not trained on Jayden. Pump models, carb ratios, correction factors, low-glucose thresholds, and backup plans are all individual. \"Good for any pump student\" is the sentence that gets a delegation pulled."
       },
       {
         id: "b",
-        text: "\"Before we open the DMMP, I want to be clear: I've assessed Aria and her condition is stable and predictable. This training is for Aria specifically — not transferable. Anything outside her written plan comes back to me. With that in mind, let's start with her pre-lunch steps.\"",
+        text: "\"Before we open Aria's diabetic action plan, I want to set the frame: I've assessed Aria and her condition is stable and predictable. The plan spells out which skills you'll be trained to do for her — carb counting, insulin via pump, low and high BG response, emergency glucagon — and the thresholds that decide when you act, when you hold, and when you call me. This training is specific to Aria. Let's start with her pre-lunch steps.\"",
         correct: true,
-        feedback: "That's the frame. You've named the three things Division 47 requires up front: (1) you, the RN, did the assessment; (2) the delegation is client-specific to Aria; (3) the plan is the boundary of what Devon can do on their own."
+        feedback: "That's the frame. You've named the three things Division 47 requires up front: (1) you, the RN, did the assessment; (2) the delegation is specific to Aria and not transferable; (3) the plan is the boundary — everything the plan trains Devon in, Devon does; anything outside the plan comes back to you."
       },
       {
         id: "c",
         text: "\"Insulin is a medication, and medications can't be delegated in Oregon. I'll need to be in the building every day at lunch.\"",
         correct: false,
-        feedback: "Incorrect on Oregon law. Subcutaneous insulin administration is permitted for delegation under OAR 851-047-0030(1). Intramuscular injections are not delegable (except emergency epinephrine and glucagon per ORS 433.800-433.830). Sub-q is fine with proper teaching and supervision."
+        feedback: "Incorrect on Oregon law. Subcutaneous insulin administration is permitted for delegation under OAR 851-047-0030(1) and is a standard school delegation when the UAP has been trained per the diabetic action plan. IM injections are not delegable except for emergency epinephrine and glucagon per ORS 433.800-433.830."
       },
       {
         id: "d",
@@ -76,51 +80,51 @@ window.SCENARIO = {
     eyebrow: "Scene 2 — Drawing the scope line",
     title: "What stays with Devon, what stays with you",
     narrative: [
-      { type: "p", text: "You move to the practical. Aria's pre-lunch check-in has a dozen small decisions embedded in it. You need Devon to know which belong to the UAP and which return to the RN." },
-      { type: "p", text: "For each action, pair it with the right owner. The scope line you draw here is the line Devon will follow every school day — and the line that protects both of you." }
+      { type: "p", text: "You move to the practical. Aria's diabetic action plan specifies the skills Devon will be trained in: carb counting, insulin via pump, low BG treatment, emergency glucagon, and the thresholds that govern each. Most of Aria's school-day diabetes care will be Devon's to execute." },
+      { type: "p", text: "That still leaves a line. Some actions belong to you — not because Devon can't be trusted, but because they're outside what the plan authorizes a trained UAP to do. Pair each action with its correct owner." }
     ],
     prompt: "Match each action to its correct owner.",
-    leftLabel: "Actions during Aria's pre-lunch check-in",
+    leftLabel: "Actions in Aria's day-to-day diabetic care",
     rightLabel: "Who owns this action",
     pairs: [
       {
+        leftId: "carb-count",
+        leftLabel: "Count the carbs in a home-packed lunch Aria brings from home and enter them as the pre-meal step",
+        rightId: "uap-carb",
+        rightLabel: "Devon — carb counting is a trained skill on Aria's diabetic action plan"
+      },
+      {
         leftId: "preset-bolus",
-        leftLabel: "Deliver the bolus the pump calculates from the carb count Aria reports, when her CGM is in range and her DMMP clears her for that bolus",
-        rightId: "uap-preset",
-        rightLabel: "Devon — this is the pre-approved action on Aria's DMMP"
+        leftLabel: "Deliver the bolus the pump calculates once the carbs and CGM are entered, when the plan clears that dose",
+        rightId: "uap-bolus",
+        rightLabel: "Devon — insulin via pump per the plan is a delegated skill, trained in the insulin delegation procedure"
       },
       {
-        leftId: "menu-substitution",
-        leftLabel: "Estimate the carbs for a menu item Aria's DMMP does not list and decide a bolus off that estimate",
-        rightId: "rn-calc",
-        rightLabel: "You — unlisted carb estimation is clinical judgment, not a delegated calculation"
+        leftId: "follow-hold-rule",
+        leftLabel: "Hold the pre-lunch bolus because Aria's CGM reads 72 mg/dL — below the plan's 80 threshold — and begin the low BG protocol",
+        rightId: "uap-rule",
+        rightLabel: "Devon — the plan sets an 80 threshold; 72 is below it, so Devon follows the written hold-and-treat rule"
       },
       {
-        leftId: "hold-for-low-trend",
-        leftLabel: "Decide whether to hold the bolus because Aria's CGM reads 72 mg/dL with a single down-arrow",
-        rightId: "rn-judgment",
-        rightLabel: "You — the DMMP sets the hold rules; deciding they apply to a borderline reading is judgment"
-      },
-      {
-        leftId: "record-cgm",
-        leftLabel: "Enter the CGM value into the pump at the DMMP's pre-meal step",
-        rightId: "uap-record",
-        rightLabel: "Devon — this is a documented step on the pre-meal checklist"
+        leftId: "change-threshold",
+        leftLabel: "Raise Aria's low-glucose threshold from 80 to 90 in the diabetic action plan after two unexplained lows this month",
+        rightId: "rn-change",
+        rightLabel: "You — changing the plan's thresholds is reassessment, not delegation"
       },
       {
         leftId: "emergency-call",
-        leftLabel: "Call 911 and administer Aria's prescribed emergency glucagon if she becomes unresponsive",
+        leftLabel: "Call EMS and administer Aria's prescribed emergency glucagon if she becomes unresponsive",
         rightId: "uap-carveout",
         rightLabel: "Devon — emergency glucagon is statutorily carved out under ORS 433.800-433.830"
       },
       {
         leftId: "symptom-assessment",
-        leftLabel: "Decide whether Aria's fuzzy-headed feeling is hypoglycemia, a migraine starting, or something else",
+        leftLabel: "Decide whether Aria's fuzzy-headed feeling is hypoglycemia, dehydration, or the start of a migraine, and choose the response",
         rightId: "rn-assess",
-        rightLabel: "You — symptom assessment is the nursing process and is not delegable"
+        rightLabel: "You — differential assessment is the nursing process and is not delegable"
       }
     ],
-    teachingMoment: "The scope line is not \"simple tasks vs. hard tasks.\" It is \"follow the written plan vs. decide what the plan should be.\" Anything that requires judgment in the moment belongs to the RN. Anything pre-specified in the DMMP and taught client-specifically belongs to the UAP.",
+    teachingMoment: "The scope line is not \"simple tasks vs. hard tasks.\" It is \"follow the plan vs. change the plan.\" A trained UAP can count carbs, run the pump, treat lows, treat highs, give emergency glucagon — everything the diabetic action plan trains them in is theirs to execute. What stays with you is writing the plan: assessing the student, setting and changing thresholds, interpreting new or unclear symptoms, and deciding when the plan itself needs to change.",
     refusalScript: "Devon, your job is to follow Aria's plan. Any time a situation isn't covered by the plan, that's a call for me — not a moment to decide on your own. You won't be in trouble for calling. You will be in trouble for guessing."
   },
 
@@ -130,18 +134,18 @@ window.SCENARIO = {
     title: "Sorting the tasks across your caseload",
     narrative: [
       { type: "p", text: "You zoom out from Aria to the whole caseload. Devon is going to support three students on three different clinical tasks. Before you write the delegation chart, you want Devon to see where every action falls." },
-      { type: "p", text: "Sort each action into one of three buckets. Some are within Devon's delegated scope after client-specific teaching. Some stay with you, the RN. A narrow statutory carve-out covers emergency epinephrine and glucagon under ORS 433.800-433.830." }
+      { type: "p", text: "Sort each action into one of three buckets. Some are within Devon's delegated scope after student-specific teaching. Some stay with you, the RN. A narrow statutory carve-out covers emergency epinephrine and glucagon under ORS 433.800-433.830." }
     ],
     prompt: "Sort each action into the right bucket.",
     buckets: [
-      { id: "uap", label: "Within Devon's scope (after client-specific teaching)" },
+      { id: "uap", label: "Within Devon's scope (after student-specific teaching)" },
       { id: "rn", label: "Stays with the RN (Devon cannot do)" },
       { id: "emergency", label: "Emergency-only statutory carve-out" }
     ],
     items: [
       {
         id: "insulin-preset",
-        label: "Deliver a pre-specified bolus from Aria's DMMP at a scheduled pre-lunch check-in",
+        label: "Deliver a pre-specified bolus from Aria's diabetic action plan at a scheduled pre-lunch check-in",
         correct: "uap"
       },
       {
@@ -189,7 +193,7 @@ window.SCENARIO = {
     title: "The nine-step delegation process, in order",
     narrative: [
       { type: "p", text: "You move from Aria to Marco. Clean intermittent catheterization is new for Devon. Before you teach the skill itself, Division 47 lays out a specific order of operations — and the order matters." },
-      { type: "p", text: "OAR 851-047-0030(3) lists the steps an RN must take when delegating a nursing task. Put them in the sequence the rule requires." }
+      { type: "p", text: "OAR 851-047-0030(3) lists the steps an RN must take when delegating a nursing procedure. Put them in the sequence the rule requires." }
     ],
     prompt: "Order the nine steps as required by OAR 851-047-0030(3).",
     slotLabels: [
@@ -212,7 +216,7 @@ window.SCENARIO = {
       { id: "teach", label: "Teach Devon the procedure, risks, side effects, signs and symptoms to watch for, response protocols, and documentation" },
       { id: "observe", label: "Observe Devon performing catheterization safely and accurately on Marco" },
       { id: "written-guidance", label: "Leave Devon written step-by-step instructions with signs, symptoms, and response protocols" },
-      { id: "client-specific", label: "Instruct Devon that this delegation is specific to Marco only and not transferable to any other student" }
+      { id: "student-specific", label: "Instruct Devon that this delegation is specific to Marco only and not transferable to any other student" }
     ],
     correctOrder: [
       "assess-client",
@@ -223,7 +227,7 @@ window.SCENARIO = {
       "teach",
       "observe",
       "written-guidance",
-      "client-specific"
+      "student-specific"
     ],
     teachingMoment: "The order is not arbitrary. The student's stability and the task's complexity drive every decision that follows — including whether the UAP gets evaluated at all. If you jump to teaching before you've assessed the student and analyzed the task, you are teaching into a delegation that may not be safe to make."
   },
@@ -239,26 +243,26 @@ window.SCENARIO = {
     calls: [
       {
         id: "call-unscripted-decision",
-        label: "Devon reports at 1 PM: \"Aria's DMMP says to hold her bolus if she's trending down below 80. She was at 82 but dropping. I just held it. Did I do the right thing?\"",
+        label: "Devon reports at 1 PM: \"Aria's CGM was 82 with a strong down-arrow at lunch. The plan says hold below 80. I held the bolus anyway because the arrow made me nervous. Did I do the right thing?\"",
         options: [
           {
             id: "a",
-            text: "\"You know Aria better than anyone. Use your judgment next time — that's why we trained you.\"",
+            text: "\"You know Aria better than anyone. Trust your gut on those borderline calls in the future.\"",
             correct: false
           },
           {
             id: "b",
-            text: "\"The DMMP gives you a 80 threshold; 82 is above it. That was a judgment call, and judgment is mine. What you should do is hold, page me immediately, and we decide together. I'm glad you held — let's update the written plan so the next borderline reading triggers a page without a pause.\"",
+            text: "\"Your instinct was safe, but the action wasn't in the plan — 82 is above the 80 threshold, so by the plan you deliver the bolus. When the situation sits between the plan's rules, the move is to page me first and hold second, so we act together. Let me update the plan so a strong down-arrow near the low threshold has its own written rule — then next time, it's not a judgment call for either of us.\"",
             correct: true
           },
           {
             id: "c",
-            text: "\"Don't hold unless the number is exactly at or below the threshold. That's the rule.\"",
+            text: "\"No, when CGM is 82 you bolus. Thresholds are strict and I don't want you deviating.\"",
             correct: false
           }
         ],
-        correctFeedback: "Right. Devon's instinct was safe, but the process was off — they made a judgment call. The response is both: \"safety first, process second\" — acknowledge the safe instinct and then tighten the plan so the next time, the instinct fires a page instead of a decision.",
-        incorrectFeedback: "This pushes clinical judgment onto the UAP or leaves them rigid in the face of a borderline reading. Section 1(a) of Division 47 keeps the nursing process with the RN — borderline readings are exactly the case where the UAP should page, not guess."
+        correctFeedback: "Right. A trained UAP follows the plan, they don't interpret it. Devon's safety instinct was correct, but they acted outside the plan — the right sequence is call-then-act, not act-then-report. Your job in this moment is to honor the instinct, draw the line, and tighten the plan so next time the instinct is written into the rules.",
+        incorrectFeedback: "Option (a) authorizes deviation — a trained UAP's scope is what the plan trains them in, not what feels right in the moment. Option (c) is too rigid given Aria's safety risk, and misses the teaching opportunity. The correct response does both: honor the safety call, and tighten the plan so the rule covers this case next time."
       },
       {
         id: "call-transfer-request",
@@ -271,7 +275,7 @@ window.SCENARIO = {
           },
           {
             id: "b",
-            text: "\"Devon's delegation is specific to Aria under OAR 851-047-0030(3)(i). For Jayden, I need to assess Jayden, evaluate Devon against Jayden's plan, teach and observe Devon on Jayden's DMMP, and document that delegation before Devon supports Jayden at lunch. For today, I'll cover Jayden myself.\"",
+            text: "\"Devon's delegation is specific to Aria under OAR 851-047-0030(3)(i). For Jayden, I need to assess Jayden, evaluate Devon against Jayden's plan, teach and observe Devon on Jayden's diabetic action plan, and document that delegation before Devon supports Jayden at lunch. For today, I'll cover Jayden myself.\"",
             correct: true
           },
           {
@@ -281,7 +285,7 @@ window.SCENARIO = {
           }
         ],
         correctFeedback: "Exactly. Client-specificity is the single hardest idea for non-nurses to absorb, because \"Devon knows pumps\" feels like transferable skill. It isn't, under Oregon law. You naming the rule — and covering the gap yourself — is how you hold that line.",
-        incorrectFeedback: "This violates the client-specific rule in section 3(i). \"Pumps are pumps\" is the sentence that gets the delegation pulled and the RN cited. Devon's training on Aria does not authorize Devon to support Jayden."
+        incorrectFeedback: "This violates the student-specific rule in section 3(i). \"Pumps are pumps\" is the sentence that gets the delegation pulled and the RN cited. Devon's training on Aria does not authorize Devon to support Jayden."
       },
       {
         id: "call-supervision-interval",
@@ -294,7 +298,7 @@ window.SCENARIO = {
           },
           {
             id: "b",
-            text: "\"OAR 851-047-0030(4)(g) caps the supervisory interval at 180 days. I'll schedule an on-site or tech-assisted visit with you and Marco inside the next two weeks — I need to see the task performed and reassess Marco's stability. This isn't about you; it's my clock.\"",
+            text: "\"MESD policy and OAR 851-047-0030 cap subsequent delegation-review intervals at 180 days — miss it and the delegation automatically expires and we'd have to restart. I'll schedule a delegation review with you and Marco inside the next two weeks — I need to observe the procedure, reassess Marco, and document reauthorization. This isn't about you; it's my clock.\"",
             correct: true
           },
           {
@@ -307,7 +311,7 @@ window.SCENARIO = {
         incorrectFeedback: "The 180-day maximum is in section 4(g). Letting the interval drift past that point means the delegation is no longer current — the UAP is technically unsupervised. Devon's \"we're fine\" is not substitute evidence; the RN must personally reassess."
       }
     ],
-    teachingMoment: "Every time a delegation gets tested, the answer points back to the same three things from the opening: is the student still stable and predictable, is the training still client-specific, and am I keeping the supervisory clock. Your scripts aren't scripts because the UAP needs to hear them — they're scripts because under stress, you need to hear them."
+    teachingMoment: "Every time a delegation gets tested, the answer points back to the same three things from the opening: is the student still stable and predictable, is the training still student-specific, and am I keeping the delegation-review clock. Your scripts aren't scripts because the UAP needs to hear them — they're scripts because under stress, you need to hear them."
   },
 
   beat5: {
@@ -321,8 +325,8 @@ window.SCENARIO = {
     prompt: "Pick the strongest entry for each required field.",
     fields: [
       {
-        id: "client-assessment",
-        label: "Client assessment and condition",
+        id: "student-assessment",
+        label: "Student assessment and condition",
         options: [
           {
             id: "a",
@@ -415,7 +419,7 @@ window.SCENARIO = {
           },
           {
             id: "b",
-            text: "Reassess Sienna's stability every 30 days (new to school setting). Initial supervisory visit with Devon within 60 days of first feeding per OAR 851-047-0030(4)(d); recurring visits at intervals no greater than 180 days per 851-047-0030(4)(g), shorter if Sienna's stability or Devon's competency changes.",
+            text: "Reassess Sienna's stability every 30 days (new to school setting). Initial authorization period not to exceed 90 days per MESD policy; subsequent delegation reviews and reauthorization not to exceed 180 days per OAR 851-047-0030 and MESD policy — shorter if Sienna's stability or Devon's competency changes. If a review is missed the delegation automatically expires and restarts. Delegation also expires at end of school year unless documented otherwise.",
             correct: true
           },
           {
@@ -436,7 +440,7 @@ window.SCENARIO = {
           },
           {
             id: "b",
-            text: "I, [RN name, OSBN license #], take responsibility for delegating Sienna's G-tube bolus feeding to Devon [UAP name] and will ensure supervision occurs per OAR 851-047-0030. This delegation is client-specific to Sienna and is not transferable.",
+            text: "I, [RN name, OSBN license #], take responsibility for delegating Sienna's G-tube bolus feeding to Devon [UAP name] and will ensure supervision occurs per OAR 851-047-0030. This delegation is specific to Sienna and is not transferable to any other student.",
             correct: true
           },
           {
@@ -457,10 +461,10 @@ window.SCENARIO = {
     intro: "You worked through the core of Division 47 as it lands in an Oregon school health office. The framework stays the same whether the task is insulin, clean catheterization, or tube feeding. In practice, it collapses into five moves:",
     pillars: [
       "Assess the student. Only a stable, predictable condition is eligible for delegation.",
-      "Analyze the task. Insulin sub-q, clean catheterization, and tube feeds are delegable; anything requiring judgment during performance is not.",
-      "Evaluate and teach the UAP client-specifically. A UAP trained for one student is not trained for another.",
+      "Analyze the task. Tasks written into the student's plan — carb counting, insulin via pump, clean catheterization, tube feeding, emergency glucagon — are delegable to a trained UAP. Writing, changing, or interpreting the plan stays with the RN.",
+      "Evaluate and teach the UAP student-specifically. A UAP trained for one student is not trained for another.",
       "Observe the UAP doing the task before you walk away, and leave written step-by-step instructions in the setting where the task happens.",
-      "Set the supervisory clock — initial visit within 60 days, maximum interval 180 days, shorter when the task is complex or the caregiver is newer. Document every piece of it."
+      "Set the delegation-review clock — initial authorization period up to 90 days, subsequent reauthorization periods up to 180 days per MESD policy and OAR. Miss a review and the delegation automatically expires and must be restarted. Document every piece of it."
     ],
     reminder: "This module teaches the Division 47 framework. It is not a substitute for the OAR text, your district's delegation policy, or your professional judgment on any specific case. When a situation falls outside the framework, err toward keeping the task with the RN and consult OSBN or your district nurse supervisor.",
     completionNote: {
@@ -473,8 +477,8 @@ window.SCENARIO = {
       closingReminder: [
         "This note is a training artifact only. It does not authorize any delegation for",
         "any specific student. Every real delegation must meet OAR 851-047-0030 in full:",
-        "RN assessment, task analysis, client-specific teach-back, direct observation,",
-        "written guidance, and documented supervisory cadence."
+        "RN assessment, task analysis, student-specific teach-back, direct observation,",
+        "written guidance, and documented delegation-review cadence."
       ],
       filenamePrefix: "delegation-basics-completion-note-"
     },
