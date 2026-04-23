@@ -713,26 +713,32 @@
   function downloadCompletionNote(data) {
     const now = new Date();
     const stamp = now.toISOString().replace(/[:.]/g, "-").slice(0, 19);
-    const lines = [
-      "A Day in the School Health Office — demo completion note",
-      "Date and time: " + now.toString(),
-      "",
+    const note = data.completionNote || {};
+    const header = note.header || "A Day in the School Health Office — demo completion note";
+    const intro = note.intro || [
       "This learner walked through a training prototype covering the five pillars of",
-      "a school health assistant's role under RN delegation in Oregon schools:",
-      ""
+      "a school health assistant's role under RN delegation in Oregon schools:"
     ];
-    data.pillars.forEach(function (p, i) { lines.push((i + 1) + ". " + p); });
-    lines.push("", "Reminder:", data.reminder, "",
+    const closingReminder = note.closingReminder || [
       "This note is a demo artifact only. It does not authorize any specific clinical",
       "task for any specific student. The supervising RN remains responsible for",
       "teaching, observing, validating, and documenting client-specific competency",
-      "per OAR 851-047-0030.");
+      "per OAR 851-047-0030."
+    ];
+    const filenamePrefix = note.filenamePrefix || "school-health-office-demo-note-";
+
+    const lines = [header, "Date and time: " + now.toString(), ""];
+    (Array.isArray(intro) ? intro : [intro]).forEach(function (ln) { lines.push(ln); });
+    lines.push("");
+    data.pillars.forEach(function (p, i) { lines.push((i + 1) + ". " + p); });
+    lines.push("", "Reminder:", data.reminder, "");
+    (Array.isArray(closingReminder) ? closingReminder : [closingReminder]).forEach(function (ln) { lines.push(ln); });
 
     const blob = new Blob([lines.join("\n")], { type: "text/plain" });
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = "school-health-office-demo-note-" + stamp + ".txt";
+    a.download = filenamePrefix + stamp + ".txt";
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
